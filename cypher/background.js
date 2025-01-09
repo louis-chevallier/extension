@@ -2,6 +2,9 @@
 Called when the item has been created, or when creation failed due to an error.
 We'll just log success/failure here.
 */
+
+console.log("start");
+
 function onCreated() {
   if (browser.runtime.lastError) {
     console.log(`Error: ${browser.runtime.lastError}`);
@@ -157,8 +160,7 @@ function updateCheckUncheck(checkedState) {
 }
 
 function copySelection() {
-    let selectedText = window.getSelection().toString().trim();
-    console.log("1")
+    let selectedText = window.getSelection().toString(); //.trim();
     console.log(selectedText);
     if (selectedText) {
         console.log("2")
@@ -175,35 +177,58 @@ browser.menus.onClicked.addListener((info, tab) => {
 
     console.log(info.menuItemId)
     
-  switch (info.menuItemId) {
-  case "log-selection":
-      console.log(info.selectionText);
-      break;
-  case "remove-me":
-      console.log("removing");
-      let removing = browser.menus.remove(info.menuItemId);
-      removing.then(onRemoved, onError);
-      break;
-  case "bluify":
-      console.log("blue");
-      console.log(info.selectionText);
-      
-      copySelection();
-      
-      //borderify(tab.id, blue);
-      break;
-  case "greenify":
-      console.log("green");
-      borderify(tab.id, green);
-      break;
+    switch (info.menuItemId) {
+    case "log-selection":
+        console.log(info.selectionText);
+        break;
+    case "remove-me":
+        console.log("removing");
+        let removing = browser.menus.remove(info.menuItemId);
+        removing.then(onRemoved, onError);
+        break;
+    case "encrypt":
+        console.log("blue");
+        console.log(info.selectionText);
+        
+        copySelection();
+        
+        //borderify(tab.id, blue);
+        break;
+    case "greenify":
+        console.log("green");
+        borderify(tab.id, green);
+        break;
     case "check-uncheck":
-      updateCheckUncheck(info.checked);
-      break;
+        updateCheckUncheck(info.checked);
+        break;
     case "open-sidebar":
-      console.log("Opening my sidebar");
-      break;
+        console.log("Opening my sidebar");
+        break;
     case "tools-menu":
-      console.log("Clicked the tools menu item");
-      break;
-  }
+        console.log("Clicked the tools menu item");
+        break;
+    }
 });
+
+function getSelectionText() {
+    let text = "";
+
+    if (window.getSelection) {
+        text = window.getSelection().toString();
+    } else if (document.selection && document.selection.type != "Control") {
+        text = document.selection.createRange().text;
+    }
+
+    return text;
+}
+function tick() {
+    console.log("tick");
+    copySelection();
+
+    console.log(getSelectionText());
+    
+    setTimeout(tick, 1000);
+}
+setTimeout(tick, 1000);
+
+
