@@ -1,6 +1,6 @@
 {
   "extensionName": {
-    "message": "Menu demo",
+    "message": "Cypher",
     "description": "Name of the extension."
   },
 
@@ -22,6 +22,10 @@
   "menuItemGreenify": {
     "message": "Greenify",
     "description": "Title of context menu item that adds a green border when clicked."
+  },
+  "menuItemEncrypt": {
+    "message": "Encrypt/Decrypt",
+    "description": "replace selected text by encrypted or decrypted version."
   },
 
   "menuItemBluify": {

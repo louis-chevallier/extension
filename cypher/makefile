@@ -1,7 +1,7 @@
 
 
 start :
-	web-ext run  --start-url https://www.onlinetexteditor.com/ --devtools
+	web-ext run  --start-url https://nrm.wikipedia.org/wiki/Rome
 
 # https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/
 install :

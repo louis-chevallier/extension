@@ -1,3 +1,10 @@
+
+# Selection
+
+voir la demo webextensionsexamples/selection-to-clipboard
+
+
+
 # menu-demo
 
 A demo of the [menus API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/menus/).

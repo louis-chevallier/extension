@@ -24,6 +24,13 @@
     "16": "icons/page-16.png",
     "32": "icons/page-32.png",
     "48": "icons/page-48.png"
+  },
+
+    
+  "sidebar_action_to_delete_for_activate_sidebar": {
+    "default_icon": "icons/page-32.png",
+    "default_title" : "My sidebar",
+    "default_panel": "sidebar/sidebar.html"
   }
 
 }
