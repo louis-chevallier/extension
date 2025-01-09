@@ -127,6 +127,16 @@ function updateCheckUncheck(checkedState) {
     });
   }
 }
+function copySelection() {
+    let selectedText = window.getSelection().toString().trim();
+    console.log("1")
+    console.log(selectedText);
+    if (selectedText) {
+        console.log("2")
+        console.log(selectedText);
+        document.execCommand("Copy");
+    }
+}
 
 /*
 The click event listener, where we perform the appropriate action given the
@@ -134,17 +144,24 @@ ID of the menu item that was clicked.
 */
 browser.menus.onClicked.addListener((info, tab) => {
   switch (info.menuItemId) {
-    case "log-selection":
+  case "log-selection":
       console.log(info.selectionText);
       break;
-    case "remove-me":
+  case "remove-me":
+      console.log("removing");
       let removing = browser.menus.remove(info.menuItemId);
       removing.then(onRemoved, onError);
       break;
-    case "bluify":
-      borderify(tab.id, blue);
+  case "bluify":
+      console.log("blue");
+      console.log(info.selectionText);
+      
+      copySelection();
+      
+      //borderify(tab.id, blue);
       break;
-    case "greenify":
+  case "greenify":
+      console.log("green");
       borderify(tab.id, green);
       break;
     case "check-uncheck":
