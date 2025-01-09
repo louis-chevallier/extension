@@ -29,17 +29,22 @@ function onError(error) {
 /*
 Create all the context menu items.
 */
+
+/*
 browser.menus.create({
   id: "log-selection",
   title: browser.i18n.getMessage("menuItemSelectionLogger"),
   contexts: ["selection"]
 }, onCreated);
+*/
 
+/*
 browser.menus.create({
   id: "remove-me",
   title: browser.i18n.getMessage("menuItemRemoveMe"),
   contexts: ["all"]
 }, onCreated);
+*/
 
 browser.menus.create({
   id: "separator-1",
@@ -59,6 +64,7 @@ browser.menus.create({
   }
 }, onCreated);
 
+/*
 browser.menus.create({
   id: "bluify",
   type: "radio",
@@ -70,13 +76,13 @@ browser.menus.create({
     "32": "icons/paint-blue-32.png"
   }
 }, onCreated);
-
+*/
 browser.menus.create({
   id: "separator-2",
   type: "separator",
   contexts: ["all"]
 }, onCreated);
-
+/*
 browser.menus.create({
   id: "check-uncheck",
   type: "checkbox",
@@ -84,14 +90,15 @@ browser.menus.create({
   contexts: ["all"],
   checked: true,
 }, onCreated);
-
+*/
+/*
 browser.menus.create({
   id: "open-sidebar",
   title: browser.i18n.getMessage("menuItemOpenSidebar"),
   contexts: ["all"],
   command: "_execute_sidebar_action"
 }, onCreated);
-
+*/
 browser.menus.create({
   id: "tools-menu",
   title: browser.i18n.getMessage("menuItemToolsMenu"),
